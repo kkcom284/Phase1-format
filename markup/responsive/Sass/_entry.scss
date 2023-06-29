@@ -1,0 +1,29 @@
+#entry {
+    height: 477px;
+    width: 100%;
+    position: relative;
+}
+
+.entry-wrap {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    width: 320px;
+    height: 127px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.entry-copy {
+    font-weight: bold;
+    font-size: 1.8rem;
+}
+
+.entry-btn {
+    // fv-btnのCSSをコピーする
+    @extend .fv-btn;
+    width: 100%;
+}

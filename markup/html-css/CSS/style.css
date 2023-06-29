@@ -26,3 +26,323 @@ body{
     margin:0;
     line-height:1.6;
 }
+
+
+/* h2{
+    color: red;
+} */
+
+/* header */
+
+header{
+    display: flex;
+    justify-content: space-between;
+    padding:0 20px;
+    color: #fff;
+    background-color: black;
+}
+
+.header-logo{
+    padding: 20px 0;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.header-nav ul{
+    display: flex;
+    padding: 22px;
+}
+
+.header-nav ul li{
+    margin-left: 55px;
+    font-size: 15px;
+}
+
+
+/* :first-v */
+#first-v{
+    height: 770px;
+    background-image: URL("../img/bg1.png");
+    background-size: cover;
+    color: #FFF;
+
+}
+.first-v-wrap{
+    padding: 285px 0 255px;
+    margin: 0 auto;
+    width: 250px;
+    text-align: center;
+
+}
+.first-v-title{
+    margin-bottom: 150px;
+    font-weight: bold;
+    font-size: 27px;
+}
+.first-v-title::before{
+    content: "";
+}
+.first-v-title::after{
+    content: "";
+    width: 100px;
+    border-top: 1px solid #FFF;
+    margin: 20px auto 0;
+    display: block;
+}
+.first-v-btn{
+width: 200px;
+text-align: center;
+font-weight: bold;
+height: 50px;
+border: none;
+border-radius: 5px;
+background: linear-gradient(-90deg,#1A719A,#06BEB6);
+box-shadow: 0 5px #070707;
+font-weight: bold;
+font-size: 15px;
+color: #FFF;
+}
+
+.fa-door-open{
+    margin-right: 4px;
+}
+/* about */
+/* 共通のスタイル */
+.inner{
+    width:1100px;
+    padding: 90px 0;
+    margin: 0 auto;
+}
+.about-title{
+    display:flex;
+    padding-bottom: 60px;
+    justify-content: center;
+    width: 250px;   
+    align-items: center;
+    
+    font-size: 18px;
+    text-align: center;
+    font-style: italic;
+    margin: 0 auto;
+}
+.title-b{
+    font-weight: bold;
+}
+
+.about-title::before {
+        content: "";
+        display:inline-block;
+        width:30px;
+        margin-right:20px;
+        border-top:1px solid#191919;
+        content: "";
+}
+.about-title::after {
+        content:"";
+        display: inline-block;
+        width:30px;
+        margin-left:20px;
+        border-top:1px solid#191919;
+        content:"";       
+}
+#about{
+    color: #191919;
+    background-color: #f8f8f8;
+}
+.about-wrap{
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 60px;
+}
+.about-item {
+    width: 300px;
+    height: 315px;
+    padding: 35px 50px 50px ;
+    text-align: center;
+    background-color: #FFF;
+    margin-right: 100px;
+
+}
+.about-item:nth-child(3),.about-item:nth-child(6){
+    margin-right: 0;
+}
+.about-item:nth-child(n+4):nth-child(-n+6){
+    margin-top: 47px;
+}
+.about-title_title  {
+    font-size: 22px;
+}
+.about-item_img img{
+    width: 122px;
+    height: 122px;
+    margin: 20px 0 25px;
+}
+
+.about-item_desc{
+    font-size: 13px;
+}
+/* news     */
+
+/* 共通のスタイル */
+#news{
+    width:100%;
+    background-image: URL("../img/bg2.png");
+    background-size: cover;
+}
+.white-title{
+    width: 150px;
+    color:#fff;
+}
+.white-title::before {
+        content: "";
+        width:30px;
+        margin-left:20px;
+        border-top:1px solid#FFFFFF;
+        content: "";
+}
+.white-title::after {
+        content:"";
+        width:30px;
+        margin-right:20px;
+        border-top:1px solid #FFFFFF;
+        content: "";
+            
+}
+.news-wrap{
+    display: flex;
+    justify-content: space-between;
+}
+.news-item{
+    width:336px;
+    margin-top: 60px;
+}
+.news-img{
+    width: 100%;
+    height: 207px;
+}
+.news-img img{
+    width: 100%;
+    height: 100%;
+}
+.news-content{
+    padding: 20px;
+    background-color: #fff;
+}
+.news-date{
+    font-size: 10px;
+    font-weight: bold;
+}
+.news-title{
+    padding: 8px 0 20px;
+    font-weight: bold;
+    font-size: 14px;
+}
+.news-txt{
+    font-size: 12px;
+}
+/* entry */
+.entry-wrap {
+    padding: 175px 0;
+    width: 400px;
+    margin: 0 auto;
+    text-align: center;
+    color: #191919;
+}
+.entry-title{
+    margin-bottom: 55px;
+    font-weight: bold;
+    font-size: 18px;
+}
+.entry-btn{
+    width: 320px;
+}
+#contact{
+    background-image: url("../img/bg3.png");
+    /* 画像が真ん中に表示される */
+    background-size: cover;
+    color:#fff;
+}
+
+.contact-wrap{
+    width:600px;
+    margin:0 auto;
+}
+
+/* titleクラスとその擬似要素の色を変える */
+#contact .title::before,#contact .title::after{
+    border-color:#fff;
+}
+.contact-caution{
+    margin:60px 0 25px;
+}
+
+.contact-box{
+    margin-bottom:33px;
+}
+
+.contact-text{
+    margin-bottom:10px;
+    font-size: 15px;
+}
+
+input,textarea,select{
+    width:100%;
+    border-radius: 7px;
+}
+select{
+    /* デフォルトでついている矢印アイコンを消す */
+    appearance: none;
+}
+
+.contact-box:nth-of-type(3){
+    position:relative;
+}
+
+.contact-box:nth-of-type(3)::after{
+    position:absolute;
+    background:url("../img/arrow.png");
+    background-size:100%;
+    display:block;
+    content:"";
+    width:15px;
+    height:15px;
+    top:60%;
+    right:15px;
+}
+input,select,textarea{
+    width:100%;
+    border-radius:7px;
+    /* placeholderに余白をつける */
+    padding:15px;
+}
+
+textarea{
+    height:185px;
+}
+
+.contact-box:nth-of-type(4){
+    margin-bottom:0px;
+}
+
+.red{
+    color:red;
+    margin-left:8px;
+}
+
+.caution-red{
+    margin-left:0;
+    margin-right:8px;
+}
+footer{
+    /* 背景色変更 */
+    background-color:#191919;
+    height:50px;
+}
+.company-info{
+    /* 文字を横方向に中央揃え */
+    text-align:center;
+    line-height:50px;
+    font-weight:bold;
+    font-size: 12px;
+    color:#FFF;
+}

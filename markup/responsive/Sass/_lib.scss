@@ -1,0 +1,74 @@
+/* mixin */
+// PC画面サイズ以上
+@mixin pc {
+    @media (min-width:1025px) {
+        @content;
+    }
+}
+
+// タブレット画面
+@mixin tab {
+    @media (max-width:1024px) {
+        @content;
+    }
+}
+
+// スマホ画面
+@mixin sp {
+    @media (max-width:599px) {
+        @content;
+    }
+}
+
+
+/* 共通部分 */
+html{
+    font-size: 62.5%;//10px=1remになる
+}
+
+body{
+    font-size: 12px;
+    line-height: 1.67;
+}
+    .inner{
+    width:80% ;
+    padding:90px 0;
+    margin:0 auto; 
+    @include tab{
+        padding:50px 0;
+        width:90%;
+    }
+}
+
+$sky:#06BEB6;
+$navy:#283c86;
+
+.title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.8rem;
+    font-style: italic;
+    margin-bottom: 60px; 
+     @include tab{
+        margin-bottom:40px;
+    }
+
+    &--b {
+        font-weight: bold;
+    }
+
+    &::before {
+        display: inline-block;
+        content: "";
+        width: 3rem;
+        border-top: 1px solid #191919;
+        margin-right: 2rem;
+    }
+
+    &::after {
+        @extend .title::before;
+        margin-right: 0;
+        margin-left: 2rem;
+    }
+}
