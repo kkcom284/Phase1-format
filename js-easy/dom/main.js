@@ -1,9 +1,16 @@
-// アラート表示
-window.alert('これはwindow.alert()で表示したアラートです')
+//利用例:
 
-// window. に限り、省略することができる。
-alert('これはalert()で表示したアラートです')
+// <p id="intro">...</p>要素を取得
+const intro = document.getElementById('intro')
+console.log(intro.textContent) //=> これは紹介文です。
 
-// documentのプロパティにアクセスする例
-console.log(document.doctype) //=> <!doctype html>
-console.log(document.title) //=> DOM API
+// <ul class="list">...</ul>要素を取得
+const list = document.querySelector('.list')
+console.log(list.children.length) //=> 3
+
+// <ul class="list">...</ul>の中にある<li>要素を取得
+const items = document.querySelectorAll('.list li')
+// itemsは配列（のようなもの）なので、forEachで繰り返しができる
+items.forEach((item) => {
+  console.log(item.textContent) // アイテム1, アイテム2, アイテム3 が順番に表示される
+})
