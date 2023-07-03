@@ -1,25 +1,36 @@
-//要素を見つける
-//documentには、HTMLの要素を見つける方法がいくつか用意されています。
+要素の情報を取得する、操作する
+上記のようにHTMLから見つけてきた要素に対しては、以下のような情報を取得したり、操作を行うことができます。以下、要素を代入した変数をelemとします。
 
-//document.getElementById(ID): HTML側にid="xxx"のように書いておき、そのIDを指定して要素を取得します。
-//document.getElementsByTagName(タグ名): HTML内のタグElementのノードを取得します。
-//document.getElementsByClassName(class): HTML側にclass="xxx"のように書いておき、そのclass名を指定して要素を取得します。
-//document.querySelector(セレクタ): CSSと同じ「セレクタ」の書き方で要素を探し、始めに見つかった要素を取得します。
-//document.querySelectorAll(セレクタ): querySelectorとほぼ同じですが、こちらはセレクタに合致する要素をすべて取得します。
+elem.textContent: タグで囲まれた中身のテキストを取得します。また、elem.textContent = "..."とすることで中身のテキストを書き換えることができます。
+elem.innerHTML: タグで囲まれた中身のHTMLを取得します。また、elem.innerHTML = "..."とすることで中身のHTMLを書き換えることができます。
+elem.children: 子要素の配列（のようなもの）を取得します。
+elem.firstElementChild: 子要素のうち、最初に書かれている要素を取得します。
+elem.lastElementChild: 子要素のうち、最後に書かれている要素を取得します。
+elem.parentElement: 親要素を取得します。
+elem.getAttribute(属性): <タグ 属性="値">の属性の部分を引数に渡して、値の部分を取得します。
+elem.setAttribute(属性, 値): 属性と値を引数に渡すと、それがHTMLに<タグ 属性="値">のように反映されます。
+利用例:
 
-//利用例:
+const elem = document.querySelector('.list')
 
-// <p id="intro">...</p>要素を取得
-const intro = document.getElementById('intro')
-console.log(intro.textContent) //=> これは紹介文です。
+console.log(elem.textContent) //=> アイテム1 アイテム2 アイテム3
+console.log(elem.innerHTML) //=> <li>アイテム1</li><li>アイテム2</li><li>アイテム3</li>
+for (let i = 0; i < elem.children.length; i++) { // for文での繰り返し
+  console.log(elem.children[i]) // <li>アイテム1</li>, <li>アイテム2</li>, <li>アイテム3</li> が順番に表示
+}
+console.log(elem.firstElementChild) //=> <li>アイテム1</li>
+console.log(elem.lastElementChild) //=> <li>アイテム3</li>
+console.log(elem.parentElement) //=> <body>...</body>
 
-// <ul class="list">...</ul>要素を取得
-const list = document.querySelector('.list')
-console.log(list.children.length) //=> 3
+const elem2 = document.querySelector('img')
 
-// <ul class="list">...</ul>の中にある<li>要素を取得
-const items = document.querySelectorAll('.list li')
-// itemsは配列（のようなもの）なので、forEachで繰り返しができる
-items.forEach((item) => {
-  console.log(item.textContent) // アイテム1, アイテム2, アイテム3 が順番に表示される
-})
+console.log(elem2.getAttribute('src')) //=> https://placehold.it/200x200
+elem2.setAttribute('src', 'https://placehold.it/400x200') // 表示される画像が変わる
+要素のリファレンス
+
+上記のような要素の情報や操作は、少しややこしいのですが、いくつかのリファレンスに分かれて記載されています。
+
+Node - Web API | MDN
+Element - Web API | MDN
+HTMLElement - Web API | MDN
+:::
