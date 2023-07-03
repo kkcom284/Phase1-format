@@ -1,3 +1,12 @@
+//要素を見つける
+//documentには、HTMLの要素を見つける方法がいくつか用意されています。
+
+//document.getElementById(ID): HTML側にid="xxx"のように書いておき、そのIDを指定して要素を取得します。
+//document.getElementsByTagName(タグ名): HTML内のタグElementのノードを取得します。
+//document.getElementsByClassName(class): HTML側にclass="xxx"のように書いておき、そのclass名を指定して要素を取得します。
+//document.querySelector(セレクタ): CSSと同じ「セレクタ」の書き方で要素を探し、始めに見つかった要素を取得します。
+//document.querySelectorAll(セレクタ): querySelectorとほぼ同じですが、こちらはセレクタに合致する要素をすべて取得します。
+
 //利用例:
 
 // <p id="intro">...</p>要素を取得
