@@ -1,13 +1,16 @@
-子要素を追加・削除する
-HTMLには書かれていない要素をJavaScript側で作成し、HTMLに追加することができます。また、要素を削除することも可能です。
+イベント
+要素には、「クリックされた」「入力された」「スクロールした」などのタイミングで「イベント」というものが発生します。イベントが発生したときになにか処理をしたい場合、その処理をあらかじめ登録しておくことができます。
 
-document.createElement(タグ名): タグ名で指定したタグの要素を作成します。作成した時点では、HTMLにはまだ追加されていない点に注意してください。
-elem.appendChild(子要素): elemに子要素で指定した要素を子要素として追加します。
-elem.removeChild(子要素): elemの子要素から子要素で指定した要素を削除します。
+elem.addEventListener(イベント名, イベントリスナ): イベント名のイベントが発生したときに実行したい処理を、関数としてイベントリスナに渡す。
+const addButton = document.getElementById('add')
+const removeButton = document.getElementById('remove')
 const list = document.querySelector('.list') // ※既に書いている場合は省略
-const newItem = document.createElement('li') // <li>要素を作成（まだHTMLには追加されない）
-newItem.textContent = '新しいアイテム'
 
-list.appendChild(newItem) // リストの最後に「新しいアイテム」が増える
-
-list.removeChild(list.firstElementChild) // リストの最初の「アイテム1」が消える
+addButton.addEventListener('click', (event) => { // <button id="add">がクリックされたとき…
+  const newItem = document.createElement('li')
+  newItem.textContent = '新しいアイテム'
+  list.appendChild(newItem)
+})
+removeButton.addEventListener('click', (event) => { // <button id="remove">がクリックされたとき…
+  list.removeChild(list.lastElementChild)
+})
