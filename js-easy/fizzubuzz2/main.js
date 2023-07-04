@@ -1,10 +1,19 @@
-for (let i = 1; i< 21; i++){
-    if(i%3===0&&i%5===0){
-    console.log('FizzBuzz')
-    }else if(i%3===0){
-        console.log('Fizz')
-    }else if(i%5===0){
-        console.log('Buzz')
-    }console.log(i)
 
+let v=0;
+const rewiteNum=document.getElementById('rewiteNum')
+rewiteNum,innerHTML =v;
+
+cobst rewiteCntUP=function(){
+    v+=1;
+    if(v%3===0&&v%5===0){
+    rewiteNum,innerHTML ='FizzBuzz';
+    }else if(v%3===0){
+        rewiteNum,innerHTML ='Fizz';
+    }else if(v%5===0){
+        rewiteNum,innerHTML ='Buzz';
+    }else{
+        rewiteNum,innerHTML =v;
+    };
+
+}
 }

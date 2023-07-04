@@ -1,0 +1,23 @@
+
+body{
+    width: 808.89px;
+    height: 168.04px;
+    display: block;
+    text-align: center;
+    margin: 8px;
+    font-size: 16px;
+
+}
+h1{
+    font-size: 32px;
+    width: 792.92px;
+    height: 45.56px;
+}
+button{
+    white-space: nowrap;
+    appearance: auto;
+    font-size: 13.33px;
+    padding: 1px 6px;
+    width: 107.41px;
+    height: 23.09px;
+}
