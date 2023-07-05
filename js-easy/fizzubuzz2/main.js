@@ -1,19 +1,19 @@
 
 let v=0;
-const rewiteNum=document.getElementById('rewiteNum')
-rewiteNum,innerHTML =v;
+const rewriteNum=document.getElementById('rewriteNum')
+rewriteNum.innerHTML =v;
 
-cobst rewiteCntUP=function(){
+const rewriteCntUP=function(){
     v+=1;
     if(v%3===0&&v%5===0){
-    rewiteNum,innerHTML ='FizzBuzz';
+    rewriteNum.innerHTML ='FizzBuzz';
     }else if(v%3===0){
-        rewiteNum,innerHTML ='Fizz';
+        rewriteNum.innerHTML ='Fizz';
     }else if(v%5===0){
-        rewiteNum,innerHTML ='Buzz';
+        rewriteNum.innerHTML ='Buzz';
     }else{
-        rewiteNum,innerHTML =v;
+        rewriteNum.innerHTML =v;
     };
 
 }
-}
+
