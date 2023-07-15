@@ -11,7 +11,8 @@ body{
 h1{
     font-size: 32px;
     width: 792.92px;
-    height: 45.56px;
+    height: 100%;
+
 }
 button{
     white-space: nowrap;
