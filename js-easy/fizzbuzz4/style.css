@@ -1,0 +1,8 @@
+body {
+    text-align: center;
+}
+
+.last-btn {
+    display: flex;
+    margin: 0 auto;
+}
