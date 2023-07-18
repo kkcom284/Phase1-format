@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <meta name='viewport' content='initial-scale=1'>
+    <meta charset='utf-8'>
+    <title>Simple Countdown Timer</title>
+    <style>
+      #view {
+        font-size: 28px;
+        width: fit-content;
+        border: 1px #888 solid;
+        padding: 0 10px 0 10px;
+        margin: 4px 0 4px 0;
+        border-radius: 8px;
+      }
+      button {
+        font-size: 15px;
+        width: 80px;
+      }
+    </style>
+  </head>
+  <body>
+    SET TIME <input type='time' id='settime' step='1'><br>
+    <div id='view'></div>
+    <button id='reset'>RESET</button>
+    <button id='start'>START</button>
+
+    <script>
+    'use strict';
+
+    const defaultSetTime = '00:05:00';
+
+    const viewColor = {
+      run  : 'lightgreen',
+      end  : 'lightcoral',
+      pause: 'lightyellow',
+      stop : 'white',
+    };
+
+    const view = document.getElementById('view');
+    const settime = document.getElementById('settime');
+    const resetBtn = document.getElementById('reset');
+    const startBtn = document.getElementById('start');
+
+    let time = 0;
+
+    window.addEventListener('DOMContentLoaded', () => {
+      settime.value = defaultSetTime;
+      view.textContent = viewFormat(settime.valueAsNumber);
+      view.style.backgroundColor = viewColor.stop;
+    });
+
+    // 計測時間設定変更
+    settime.addEventListener('change', () => {
+      time = 0;
+      if(!isNaN(settime.valueAsNumber)) view.textContent = viewFormat(settime.valueAsNumber);
+      view.style.backgroundColor = viewColor.stop;
+    });
+
+    // START/STOPボタンクリック
+    startBtn.addEventListener('click', () => {
+      // 計測停止中
+      if(time <= 0) {
+        // 計測開始処理
+        if(isNaN(settime.valueAsNumber) || settime.valueAsNumber === 0) return;
+        time += Date.now();
+        countdown();
+        resetBtn.disabled = settime.disabled = true;
+        startBtn.textContent = 'STOP';
+        view.style.backgroundColor = viewColor.run;
+      }
+      // 計測中
+      else {
+        // 計測停止処理
+        time -= Date.now();
+        resetBtn.disabled = settime.disabled = false;
+        startBtn.textContent = 'START';
+        view.style.backgroundColor = viewColor.pause;
+      }
+    });
+
+    // RESETボタンクリック
+    resetBtn.addEventListener('click', () => {
+      if(isNaN(settime.valueAsNumber)) return;
+      time = 0;
+      view.textContent = viewFormat(settime.valueAsNumber);
+      resetBtn.disabled = startBtn.disabled = settime.disabled = false;
+      startBtn.textContent = 'START';
+      view.style.backgroundColor = viewColor.stop;
+    });
+
+    // カウントダウン処理
+    const countdown = () => {
+      const t = settime.valueAsNumber + time - Date.now();
+      // 0未到達
+      if(t > 0) {
+        // 残時間反映
+        view.textContent = viewFormat(t);
+        requestAnimationFrame(countdown);
+      }
+      // 0到達
+      else if(time >= 0) {
+        view.textContent = viewFormat(0);
+        resetBtn.disabled = false;
+        startBtn.disabled = true;
+        view.style.backgroundColor = viewColor.end;
+      }
+    };
+
+    // 時間表示フォーマット
+    const viewFormat = num => new Date(num).toJSON().slice(11, 21);
+    </script>
+  </body>
+</html>
