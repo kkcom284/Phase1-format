@@ -5,7 +5,15 @@ const cntUp=function(){
 };
 
 const reply =function(){
-    const action =Array(1*cntPerson+ 1).join('どうぞどうぞ');
+    const str ='どうぞどうぞ';
+    const action =str.repeat(cntPerson);
     alert(action);
     cntPerson=0;
+};
+
+const cntDown=function(){
+    cntPerson -=1;
+    if(cntPerson<0){
+        alert('もう誰もいない、、、');
+    }
 };
