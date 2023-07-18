@@ -5,8 +5,7 @@ const cntUp=function(){
 };
 
 const reply =function(){
-    const str ='どうぞどうぞ';
-    const action =str.repeat(cntPerson);
+    const action =Array(1*cntPerson+ 1).join('どうぞどうぞ');
     alert(action);
     cntPerson=0;
 };
