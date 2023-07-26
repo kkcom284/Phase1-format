@@ -1,31 +1,36 @@
-let timer; /*繰り返し構文＝let timer を繰り返す */
-let sec = 0; /*letは0である*/
+let timer;
 
-const confirmTime = document.getElementById('confirmTime'); 
-const startTimer = document.getElementById('startTimer');
+const confirmTime2 = document.getElementById("confirmTime2");
+const startTimer2 = document.getElementById("startTimer2");
 
-confirmTime.addEventListener('click', function() {
-  if (sec === 20) {
-    alert('大正解^-^');
-  } else if (sec < 20) {
-    alert(`まだ${sec}秒、、、再スタートだ`);
+let startTime;
+let nowTime;
+let diffTime;
+
+confirmTime2.addEventListener("click", function () {
+  nowTime = new Date();
+  if (startTime === undefined) {
+    return;
+  }
+  if (diffTime === 20) {
+    alert("大正解^-^");
+  } else if (diffTime < 20) {
+    alert(`まだ${diffTime}秒、、、再スタートだ`);
   } else {
-    alert(`もう${sec}秒だ！再挑戦せよ`);
+    alert(`もう${diffTime}秒だ！再挑戦せよ`);
   }
   clearInterval(timer);
-  sec = 0;
 });
 
-startTimer.addEventListener('click', function() {
-  clearInterval(timer);
-  timer = setInterval('countUp()', 1000);
+startTimer2.addEventListener("click", function () {
+  startTime = new Date();
+  timer = setInterval(countUp2, 1000);
 });
 
-const countUp = function() {
-  sec += 1;
-  if (sec === 40) {
-    clearInterval(timer);
-    alert('終了/また挑戦しろ');
-    sec = 0;
+const countUp2 = function () {
+  let checkTime = new Date();
+  diffTime = Math.floor((checkTime.getTime() - startTime.getTime()) / 1000);
+  if (diffTime === 40) {
+    alert("終了/また挑戦しろ");
   }
 };
