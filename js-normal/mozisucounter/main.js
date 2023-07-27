@@ -1,5 +1,3 @@
-let textarea;
-
 input.addEventListener('keyup', function() {
   //省略
   textarea = input.value;
@@ -10,10 +8,10 @@ reset.addEventListener('click', function() {
   textarea=""
 });
 
-const iniDelBtn = document.getElementById('iniDel');
+const endDelBtn = document.getElementById('endDel');
 
-iniDelBtn.addEventListener('click', function() {
-  textarea = textarea.slice(1);
+endDelBtn.addEventListener('click', function() {
+  textarea = textarea.slice(0, -1);
   input.value = textarea;
   countNum.textContent = `あと ${goalNum - input.value.length} 文字`;
 });
