@@ -1,32 +1,32 @@
-let timer;
-let sec = 10;
-
-const nowTime = document.getElementById('nowTime');
-const setTime = document.getElementById('setTime');
-const startTimer = document.getElementById('startTimer');
-const stopTimer = document.getElementById('stopTimer');
+let leftHour;
+let leftMin;
+let leftSec;
 
 setTime.addEventListener('click', function() {
   sec = document.getElementById('inputTime').value;
-  nowTime.textContent = `${sec}：セット完了です`;
+  leftSec = sec % 60;
+  leftMin = Math.floor((sec % 3600) / 60);
+  leftHour = Math.floor(sec / 3600);
+  nowTime.textContent = `残り${leftHour}時間${leftMin}分${leftSec}秒：セット完了です`;
 });
 
 startTimer.addEventListener('click', function() {
-  clearInterval(timer);
-  timer = setInterval('countDown()', 1000);
+  // 省略
 });
 
 const countDown = function() {
   sec -= 1;
-  nowTime.textContent = sec;
-  console.log(sec);
-  if (sec === 0) {
-    alert('終了');
-    clearInterval(timer);
-  }
+  leftSec = sec % 60;
+  leftMin = Math.floor((sec % 3600) / 60);
+  leftHour = Math.floor(sec / 3600);
+  nowTime.textContent = `残り${leftHour}時間${leftMin}分${leftSec}秒`;
+  //省略
 };
 
 stopTimer.addEventListener('click', function() {
   clearInterval(timer);
-  nowTime.textContent = `${sec} + ：ストップしました`;
+  leftSec = sec % 60;
+  leftMin = Math.floor((sec % 3600) / 60);
+  leftHour = Math.floor(sec / 3600);
+  nowTime.textContent = `残り${leftHour}時間${leftMin}分${leftSec}秒でストップしました`;
 });
