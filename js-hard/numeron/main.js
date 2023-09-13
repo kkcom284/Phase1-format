@@ -2,17 +2,35 @@ const answerNum = document.getElementById("answerNum");
 const numCheck = document.getElementById("numCheck");
 const remainTurn = document.getElementById("remainTurn");
 
-const raondomNum = Math.floor(Math.random() * 9 + 1);
-
-const firstNum = array[0][rondomNum];
-
 // let number = [
-//   [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
-//   [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
-//   [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+//   [1, 2, 3, 4, 5, 6, 7, 8, 9],
+//   [1, 2, 3, 4, 5, 6, 7, 8, 9],
+//   [1, 2, 3, 4, 5, 6, 7, 8, 9],
 // ];
 
-let;
+// const empty = [1, 2, 3];
+let rondomNum;
+// const random = 123;
+while (true) {
+  rondomNum = String(Math.floor(Math.random() * 900 + 100));
+  // 0.99999*900+100=999
+  // 100~999のランダムな数の作成
+  if (rondomNum[0] !== rondomNum[1] && rondomNum[1] !== rondomNum[2]) {
+    console.log(rondomNum);
+    break;
+  }
+}
+
+numCheck.addEventListener("click", () => {
+  // プレイヤーの打った情報の取得
+  // プレイヤーの打った数字のチェック
+  // プレイヤーとCPとの数字の比較
+  // EATとBITEの情報の取得（計算）
+  // アラート
+});
+// const firstNum = number[0][rondomNum];
+// ランダムにアクセス
+
 // console.log(number[2][1]);
 
 // let userData = [
