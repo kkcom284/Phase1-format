@@ -13,17 +13,33 @@ let rondomNum;
 // const random = 123;
 while (true) {
   rondomNum = String(Math.floor(Math.random() * 900 + 100));
+  // String文字列の生成
   // 0.99999*900+100=999
   // 100~999のランダムな数の作成
-  if (rondomNum[0] !== rondomNum[1] && rondomNum[1] !== rondomNum[2]) {
+  if (
+    rondomNum[0] !== rondomNum[1] &&
+    rondomNum[1] !== rondomNum[2] &&
+    rondomNum[0] !== rondomNum[2]
+  ) {
     console.log(rondomNum);
     break;
   }
 }
 
 numCheck.addEventListener("click", () => {
+  let numCheck;
   // プレイヤーの打った情報の取得
+  const value = answerNum.value;
+  console.log(answerNum.value);
   // プレイヤーの打った数字のチェック
+  const answerNum2 = String(value);
+  var result = String.Math;
+  if (
+    answerNum2[0] !== answerNum2[1] &&
+    answerNum2[1] !== answerNum2[2] &&
+    answerNum2[0] !== answerNum2[2]
+  ) {
+  }
   // プレイヤーとCPとの数字の比較
   // EATとBITEの情報の取得（計算）
   // アラート
