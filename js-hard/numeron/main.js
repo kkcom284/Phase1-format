@@ -41,8 +41,13 @@ numCheck.addEventListener("click", () => {
   ) {
   }
   // プレイヤーとCPとの数字の比較
+  // Array.prototype.includes()を使う
+
+  // trueとfalseと出力されるのがヒントかも？
   // EATとBITEの情報の取得（計算）
+
   // アラート
+  alert("");
 });
 // const firstNum = number[0][rondomNum];
 // ランダムにアクセス
