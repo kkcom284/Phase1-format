@@ -41,8 +41,25 @@ numCheck.addEventListener("click", () => {
   ) {
   }
   // プレイヤーとCPとの数字の比較
+  // Array.prototype.includes()を使う
+  const result2 = answerNum2.includes(1);
+  // console.dir({ answerNum2 });
+  const answerNum3 = Array.from(String(value), Number);
+  console.log(answerNum3);
+
+  // 数値を配列に変換
+  // const arr = Array.from(String(num), Number);
+  // 「split」を使用して分割後に、数値に変換する方法もあります。
+  // const arr = String(num).split('').map(x => Number(x));
+
+  // 配列に対して使える
+  // 文字列には使えない
+
+  // trueとfalseと出力されるのがヒントかも？
   // EATとBITEの情報の取得（計算）
+
   // アラート
+  // alert("");
 });
 // const firstNum = number[0][rondomNum];
 // ランダムにアクセス
