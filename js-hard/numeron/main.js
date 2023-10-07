@@ -42,6 +42,7 @@ numCheck.addEventListener("click", () => {
   }
   // プレイヤーとCPとの数字の比較
   // Array.prototype.includes()を使う
+<<<<<<< HEAD
   const result2 = answerNum2.includes(1);
   // console.dir({ answerNum2 });
   const answerNum3 = Array.from(String(value), Number);
@@ -54,12 +55,18 @@ numCheck.addEventListener("click", () => {
 
   // 配列に対して使える
   // 文字列には使えない
+=======
+>>>>>>> 2daf473a080a03b3a4a093ec007b2f4b773665bd
 
   // trueとfalseと出力されるのがヒントかも？
   // EATとBITEの情報の取得（計算）
 
   // アラート
+<<<<<<< HEAD
   // alert("");
+=======
+  alert("");
+>>>>>>> 2daf473a080a03b3a4a093ec007b2f4b773665bd
 });
 // const firstNum = number[0][rondomNum];
 // ランダムにアクセス
