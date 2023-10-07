@@ -42,8 +42,9 @@ numCheck.addEventListener("click", () => {
   }
   // プレイヤーとCPとの数字の比較
   // Array.prototype.includes()を使う
-<<<<<<< HEAD
-  const result2 = answerNum2.includes(1);
+  const result2 = answerNum2.includes();
+  // 配列内に特定の要素がないか調べる
+  //
   // console.dir({ answerNum2 });
   const answerNum3 = Array.from(String(value), Number);
   console.log(answerNum3);
@@ -55,18 +56,71 @@ numCheck.addEventListener("click", () => {
 
   // 配列に対して使える
   // 文字列には使えない
-=======
->>>>>>> 2daf473a080a03b3a4a093ec007b2f4b773665bd
 
   // trueとfalseと出力されるのがヒントかも？
   // EATとBITEの情報の取得（計算）
-
+  // 数字と桁があっていればEAT,数字が合っていて桁が違っていればBITE
+  // アラートととして表記する
   // アラート
-<<<<<<< HEAD
-  // alert("");
-=======
-  alert("");
->>>>>>> 2daf473a080a03b3a4a093ec007b2f4b773665bd
+  const a = rondomNum[0] === answerNum2[0];
+  const b = rondomNum[1] === answerNum2[1];
+  const c = rondomNum[2] === answerNum2[2];
+  if (rondomNum === answerNum2) {
+    alert("正解");
+    console.log("正解");
+  }
+  if (
+    rondomNum[0] === answerNum2[0] &&
+    rondomNum[1] === answerNum2[1] &&
+    rondomNum[2] === answerNum2[2]
+  ) {
+    // aler
+    // console.log("eat");
+  }
+
+  for (let i = 0; i < answerNum2.length; i++) {
+    if (
+      rondomNum[0] === answerNum2[0] ||
+      rondomNum[1] === answerNum2[i] ||
+      rondomNum[2] === answerNum2[i]
+    ) {
+      // alert(i + "BITE");
+      // console.log("BITE");
+    }
+  }
+  let eat = 0;
+  let bite = 0;
+
+  for (let i = 0; i < answerNum2.length; i++) {
+    // console.log(eat++);
+
+    for (let j = 0; j < answerNum2.length; j++) {
+      // console.log(bite++);
+      if (rondomNum[i] === answerNum2[j]) {
+        if (i === j) {
+          eat++;
+        } else {
+          bite++;
+        }
+        // if (i !== j) {
+        //   bite++;
+        // }
+        console.log(eat, bite);
+      }
+
+      // 中が回る回数＊外が回る回数
+    }
+  }
+  alert(eat + "eat", bite + "bite");
+  // answerNum2f
+  //   rondomNum[0] === answerNum2[0] ||
+  //     rondomNum[1] === answerNum2[0] ||
+  //     rondomNum[2] === answerNum2[0]
+  // );
+  // answerNum2の1桁目を比較した
+  // rondomNum[0]=== answerNum2[1]||
+  // rondomNum[1]===answerNum2[1]||
+  // rondomNum[2]=== answerNum2[1]
 });
 // const firstNum = number[0][rondomNum];
 // ランダムにアクセス
