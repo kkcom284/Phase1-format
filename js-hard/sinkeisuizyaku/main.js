@@ -54,15 +54,14 @@ let cardBack = document.getElementsByClassName("back");
 let cardFinish = document.getElementsByClassName("finish");
 
 let orderNum = [1, 1, 2, 2, 3, 3, 4, 4];
-let randomNum = [];
-let rand;
-for (let i = 0, len = orderNum.length; i < 8; i++, len--) {
-  rand = Math.floor(Math.random() * len);
-  randomNum.push(orderNum.splice(rand, 1)[0]);
-  console.log("orderNum:" + orderNum);
-  console.log("randomNum:" + randomNum);
+fisherYatesShuffle(orderNum);
+function fisherYatesShuffle(arr) {
+  for (let i = arr.length - 1; i > 0; i--) {
+    let j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
 }
-
+console.log(orderNum);
 // 目標　8つの１～４の数字を持ったcardというclassを持つdivを作る
 //できたこと
 // divの作成
@@ -80,198 +79,93 @@ for (let i = 0, len = orderNum.length; i < 8; i++, len--) {
 // divに入れる
 
 // randomNumが８になるまで
-div1 = document.createElement("div");
-div2 = document.createElement("div");
-div3 = document.createElement("div");
-div4 = document.createElement("div");
-div5 = document.createElement("div");
-div6 = document.createElement("div");
-div7 = document.createElement("div");
-div8 = document.createElement("div");
 
-div1.classList.add("card", "back");
-div2.classList.add("card", "back");
-div3.classList.add("card", "back");
-div4.classList.add("card", "back");
-div5.classList.add("card", "back");
-div6.classList.add("card", "back");
-div7.classList.add("card", "back");
-div8.classList.add("card", "back");
+for (let i = 0; i < 8; i++) {
+  const div = document.createElement("div");
 
-// calss作成
-fragment.append(div1);
-fragment.append(div2);
-fragment.append(div3);
-fragment.append(div4);
-fragment.append(div5);
-fragment.append(div6);
-fragment.append(div7);
-fragment.append(div8);
+  fragment.append(div);
+  div.classList.add("card", "back");
+  div.addEventListener("click", () => {
+    div.classList.remove("bsack");
+    div.innerHTML = orderNum[i];
+  });
+  panel.after(div);
+}
 
-panel.after(div1);
-panel.after(div2);
-panel.after(div3);
-panel.after(div4);
-panel.after(div5);
-panel.after(div6);
-panel.after(div7);
-panel.after(div8);
+// div1 = document.createElement("div");
+// div2 = document.createElement("div");
+// div3 = document.createElement("div");
+// div4 = document.createElement("div");
+// div5 = document.createElement("div");
+// div6 = document.createElement("div");
+// div7 = document.createElement("div");
+// div8 = document.createElement("div");
 
-let firstCard = null;
-let secondCard = null;
-const flip = (eve) => {
-  let div1 = eve.target;
-  if (!div1.classList.contains("back") || secondCard !== null) {
-    return;
-  }
-};
+// div1.classList.add("card", "back");
+// div2.classList.add("card", "back");
+// div3.classList.add("card", "back");
+// div4.classList.add("card", "back");
+// div5.classList.add("card", "back");
+// div6.classList.add("card", "back");
+// div7.classList.add("card", "back");
+// div8.classList.add("card", "back");
 
-div1.addEventListener("click", () => {
-  div1.classList.remove("back");
-  if (firstCard === null) {
-    firstCard = div1;
-  } else {
-    secondCard = div1;
-    if (firstCard.num === secondCard.num) {
-      firstCard.classList.add("finish");
-      secondCard.classList.add("finish");
-      [firstCard, secondCard] = [null, null];
-    } else {
-      firstCard.classList.add("back");
-      secondCard.classList.add("back");
-      [firstCard, secondCard] = [null, null];
-    }
-  }
-  div1.innerHTML = randomNum[0];
-});
+// // const flip = (eve) => {
+// //   let div1 = eve.target;
+// //   div1.classList.toggle("back");
+// // };
 
-div2.addEventListener("click", () => {
-  div2.classList.remove("back");
-  if (firstCard === null) {
-    firstCard = div2;
-  } else {
-    secondCard = div2;
-    if (firstCard.num === secondCard.num) {
-      firstCard.classList.add("finish");
-      secondCard.classList.add("finish");
-      [firstCard, secondCard] = [null, null];
-    } else {
-      firstCard.classList.add("back");
-      secondCard.classList.add("back");
-      [firstCard, secondCard] = [null, null];
-    }
-  }
-  div2.innerHTML = randomNum[1];
-});
+// // calss作成
+// fragment.append(div1);
+// fragment.append(div2);
+// fragment.append(div3);
+// fragment.append(div4);
+// fragment.append(div5);
+// fragment.append(div6);
+// fragment.append(div7);
+// fragment.append(div8);
 
-div3.addEventListener("click", () => {
-  div3.classList.remove("back");
-  if (firstCard === null) {
-    firstCard = div3;
-  } else {
-    secondCard = div3;
-    if (firstCard.num === secondCard.num) {
-      firstCard.classList.add("finish");
-      secondCard.classList.add("finish");
-      [firstCard, secondCard] = [null, null];
-    } else {
-      firstCard.classList.add("back");
-      secondCard.classList.add("back");
-      [firstCard, secondCard] = [null, null];
-    }
-  }
-  div3.innerHTML = randomNum[2];
-});
-div4.addEventListener("click", () => {
-  div4.classList.remove("back");
-  if (firstCard === null) {
-    firstCard = div4;
-  } else {
-    secondCard = div4;
-    if (firstCard.num === secondCard.num) {
-      firstCard.classList.add("finish");
-      secondCard.classList.add("finish");
-      [firstCard, secondCard] = [null, null];
-    } else {
-      firstCard.classList.add("back");
-      secondCard.classList.add("back");
-      [firstCard, secondCard] = [null, null];
-    }
-  }
-  div4.innerHTML = randomNum[3];
-});
-div5.addEventListener("click", () => {
-  div5.classList.remove("back");
-  if (firstCard === null) {
-    firstCard = div5;
-  } else {
-    secondCard = div5;
-    if (firstCard.num === secondCard.num) {
-      firstCard.classList.add("finish");
-      secondCard.classList.add("finish");
-      [firstCard, secondCard] = [null, null];
-    } else {
-      firstCard.classList.add("back");
-      secondCard.classList.add("back");
-      [firstCard, secondCard] = [null, null];
-    }
-  }
-  div5.innerHTML = randomNum[4];
-});
-div6.addEventListener("click", () => {
-  div6.classList.remove("back");
-  if (firstCard === null) {
-    firstCard = div6;
-  } else {
-    secondCard = div6;
-    if (firstCard.num === secondCard.num) {
-      firstCard.classList.add("finish");
-      secondCard.classList.add("finish");
-      [firstCard, secondCard] = [null, null];
-    } else {
-      firstCard.classList.add("back");
-      secondCard.classList.add("back");
-      [firstCard, secondCard] = [null, null];
-    }
-  }
-  div6.innerHTML = randomNum[5];
-});
-div7.addEventListener("click", () => {
-  div7.classList.remove("back");
-  if (firstCard === null) {
-    firstCard = div7;
-  } else {
-    secondCard = div7;
-    if (firstCard.num === secondCard.num) {
-      firstCard.classList.add("finish");
-      secondCard.classList.add("finish");
-      [firstCard, secondCard] = [null, null];
-    } else {
-      firstCard.classList.add("back");
-      secondCard.classList.add("back");
-      [firstCard, secondCard] = [null, null];
-    }
-  }
-  div7.innerHTML = randomNum[6];
-});
-div8.addEventListener("click", () => {
-  div8.classList.remove("back");
-  if (firstCard === null) {
-    firstCard = div8;
-  } else {
-    secondCard = div8;
-    if (firstCard.num === secondCard.num) {
-      firstCard.classList.add("finish");
-      secondCard.classList.add("finish");
-      [firstCard, secondCard] = [null, null];
-    } else {
-      firstCard.classList.add("back");
-      secondCard.classList.add("back");
-      [firstCard, secondCard] = [null, null];
-    }
-  }
-  div8.innerHTML = randomNum[7];
-});
+// panel.after(div1);
+// panel.after(div2);
+// panel.after(div3);
+// panel.after(div4);
+// panel.after(div5);
+// panel.after(div6);
+// panel.after(div7);
+// panel.after(div8);
+
+// div1.addEventListener("click", () => {
+//   div1.classList.remove("back");
+//   div1.innerHTML = orderNum[0];
+// });
+// div2.addEventListener("click", () => {
+//   div2.classList.remove("back");
+//   div2.innerHTML = randomNum[1];
+// });
+// div3.addEventListener("click", () => {
+//   div3.classList.remove("back");
+//   div3.innerHTML = randomNum[2];
+// });
+// div4.addEventListener("click", () => {
+//   div4.classList.remove("back");
+//   div4.innerHTML = randomNum[3];
+// });
+// div5.addEventListener("click", () => {
+//   div5.classList.remove("back");
+//   div5.innerHTML = randomNum[4];
+// });
+// div6.addEventListener("click", () => {
+//   div6.classList.remove("back");
+//   div6.innerHTML = randomNum[5];
+// });
+// div7.addEventListener("click", () => {
+//   div7.classList.remove("back");
+//   div7.innerHTML = randomNum[6];
+// });
+// div8.addEventListener("click", () => {
+//   div8.classList.remove("back");
+//   div8.innerHTML = randomNum[7];
+// });
 // div2.innerHTML = randomNum[1];
 // div3.innerHTML = randomNum[2];
 // div4.innerHTML = randomNum[3];
@@ -280,8 +174,6 @@ div8.addEventListener("click", () => {
 // div7.innerHTML = randomNum[6];
 // div8.innerHTML = randomNum[7];
 
-// console.log(orderNum);
-console.log(cardElments);
 // ②１６行目
 
 // ③　２2行目
