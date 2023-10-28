@@ -86,7 +86,7 @@ for (let i = 0; i < 8; i++) {
   fragment.append(div);
   div.classList.add("card", "back");
   div.addEventListener("click", () => {
-    div.classList.remove("bsack");
+    div.classList.remove("back");
     div.innerHTML = orderNum[i];
   });
   panel.after(div);
