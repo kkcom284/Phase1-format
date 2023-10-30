@@ -53,6 +53,10 @@ let cardElments = document.getElementsByClassName("card");
 let cardBack = document.getElementsByClassName("back");
 let cardFinish = document.getElementsByClassName("finish");
 
+const nextPlayer = document.getElementById("nextPlayer");
+const player1Point = document.getElementById("player1Point");
+const player2Point = document.getElementById("player2Point");
+
 let orderNum = [1, 1, 2, 2, 3, 3, 4, 4];
 fisherYatesShuffle(orderNum);
 function fisherYatesShuffle(arr) {
@@ -80,17 +84,76 @@ console.log(orderNum);
 
 // randomNumが８になるまで
 
+let firstCard = undefined;
+let secondCard = undefined;
+let openCunt = 0;
+
+// let cardCickCount = 0;
+const cardCheck = () => {
+  if (firstCard.innerHTML === secondCard.innerHTML) {
+    setTimeout(() => {
+      firstCard.classList.add("finish");
+      secondCard.classList.add("finish");
+      console.log(firstCard.innerHTML);
+      console.log(secondCard.innerHTML);
+      firstCard.innerHTML = "";
+      secondCard.innerHTML = "";
+
+      firstCard = undefined;
+      secondCard = undefined;
+      openCunt = 0;
+    }, 1000);
+
+    console.log(firstCard.classList);
+  } else {
+    setTimeout(() => {
+      firstCard.classList.add("back");
+      secondCard.classList.add("back");
+      firstCard.innerHTML = "";
+      secondCard.innerHTML = "";
+      firstCard = undefined;
+      secondCard = undefined;
+      openCunt = 0;
+    }, 1000);
+  }
+};
+
 for (let i = 0; i < 8; i++) {
   const div = document.createElement("div");
 
   fragment.append(div);
   div.classList.add("card", "back");
   div.addEventListener("click", () => {
-    div.classList.remove("back");
-    div.innerHTML = orderNum[i];
+    if (!firstCard || !secondCard) {
+      div.classList.remove("back");
+      div.innerHTML = orderNum[i];
+      div.index = i;
+      console.log(div.index);
+    }
+    if (!firstCard) {
+      firstCard = div;
+    } else if (!secondCard) {
+      if (firstCard.index === div.index) {
+        return;
+      }
+
+      secondCard = div;
+      cardCheck();
+    }
   });
+
   panel.after(div);
 }
+// やりたいこと
+// Cardを２枚表にし、同じ数字ならfinishCardにする
+// 全てfinishCardにしたらアラームで"正解"にする
+
+//どうするか
+//firstCardを一番目にひいたCardと定義する
+//secondCardを2番目に引いたCardと定義する
+// ２枚のCardがクリックされたらfirstCardとsecondCardを比較する
+// 比較したCardが同じ数字であればfinishCardにする
+// 全て（８枚）のCardがfinishCardになったかチェックする（Cardがすべて削除されたら)
 
 // div1 = document.createElement("div");
 // div2 = document.createElement("div");
