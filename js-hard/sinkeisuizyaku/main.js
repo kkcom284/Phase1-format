@@ -144,6 +144,10 @@ for (let i = 0; i < 8; i++) {
 
   panel.after(div);
 }
+let cardBackResult = document.getElementsByClassName("back");
+if (!cardBackResult.classList === contains("back"));
+console.log(cardBackResult);
+
 // やりたいこと
 // Cardを２枚表にし、同じ数字ならfinishCardにする
 // 全てfinishCardにしたらアラームで"正解"にする
