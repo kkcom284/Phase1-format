@@ -86,7 +86,7 @@ console.log(orderNum);
 
 let firstCard = undefined;
 let secondCard = undefined;
-let openCunt = 0;
+let openCount = 0;
 
 // let cardCickCount = 0;
 const cardCheck = () => {
@@ -101,7 +101,12 @@ const cardCheck = () => {
 
       firstCard = undefined;
       secondCard = undefined;
-      openCunt = 0;
+
+      const matches = document.querySelectorAll(".back");
+      console.log(matches);
+      if (matches.length === 0) {
+        alert("終了です");
+      }
     }, 1000);
 
     console.log(firstCard.classList);
@@ -113,11 +118,11 @@ const cardCheck = () => {
       secondCard.innerHTML = "";
       firstCard = undefined;
       secondCard = undefined;
-      openCunt = 0;
+      openCount = 0;
     }, 1000);
   }
 };
-
+let backCheck;
 for (let i = 0; i < 8; i++) {
   const div = document.createElement("div");
 
@@ -144,9 +149,6 @@ for (let i = 0; i < 8; i++) {
 
   panel.after(div);
 }
-let cardBackResult = document.getElementsByClassName("back");
-if (!cardBackResult.classList === contains("back"));
-console.log(cardBackResult);
 
 // やりたいこと
 // Cardを２枚表にし、同じ数字ならfinishCardにする
